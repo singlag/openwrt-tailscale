@@ -91,6 +91,9 @@
                             <input name="advertiseExitNode" type="checkbox" :value="false" v-model="config.advertiseExitNode">
                             <label></label>
                         </div>
+                        <div class="cbi-value-description">
+                            Allow other client to route public internet traffic to here then to internet (Remeber to enable "Use as exit node" at Admin Console)
+                        </div>
                     </div>
                 </div>
                 <!--  -->
@@ -100,6 +103,9 @@
                         <div class="cbi-checkbox">
                             <input name="acceptroutes" type="checkbox" :value="false" v-model="config.acceptRoutes">
                             <label></label>
+                        </div>
+                        <div class="cbi-value-description">
+                            If an Admin has created subnet routes for your tailnet, then Tailscale will route your device's traffic for the advertised subnets to the appropriate subnet router
                         </div>
                     </div>
                 </div>
@@ -112,7 +118,7 @@
                                 v-model.trim="config.advertiseRoutes">
                         </div>
                         <div class="cbi-value-description">
-                            Example : <code>192.168.100.0/24</code>
+                            Example : <code>192.168.100.0/24</code> (Remeber to enable "Subnet Route" at Admin Console)
                         </div>
                     </div>
                 </div>

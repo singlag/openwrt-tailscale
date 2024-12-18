@@ -5,6 +5,8 @@ declare interface ResponseConfig {
     enabled?: boolean
     acceptRoutes?: boolean
     advertiseExitNode?: boolean
+    notAcceptDns?: boolean
+    shieldsUp?: boolean
     hostname?: string
     advertiseRoutes?: string
     loginServer?: string

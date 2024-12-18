@@ -138,7 +138,7 @@
                 </div>
                 <!--  -->
                 <div class="cbi-value">
-                    <label class="cbi-value-title">令牌</label>
+                    <label class="cbi-value-title">Tokens</label>
                     <div class="cbi-value-field">
                         <div>
                             <input type="password" class="cbi-input-password" name="authkey" v-model.trim="config.authkey"

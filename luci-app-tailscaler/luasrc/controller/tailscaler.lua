@@ -21,6 +21,8 @@ function getTailscaleConfig()
     local enabled   		= 	uci:get_first("tailscaler", "settings", "enabled")
     local acceptRoutes  	= 	uci:get_first("tailscaler", "settings", "acceptRoutes")
     local advertiseExitNode  	= 	uci:get_first("tailscaler", "settings", "advertiseExitNode")
+    local notAcceptDns  	= 	uci:get_first("tailscaler", "settings", "notAcceptDns")
+    local shieldsUp  	= 	uci:get_first("tailscaler", "settings", "shieldsUp")
     local hostname   		= 	uci:get_first("tailscaler", "settings", "hostname")
     local advertiseRoutes   = 	uci:get_first("tailscaler", "settings", "advertiseRoutes")
     local loginServer  		= 	uci:get_first("tailscaler", "settings", "loginServer")
@@ -29,6 +31,8 @@ function getTailscaleConfig()
         enabled    			= 	(enabled == "1"),
 		acceptRoutes 		= 	(acceptRoutes == "1"),
 		advertiseExitNode 	= 	(advertiseExitNode == "1"),
+		notAcceptDns 		= 	(notAcceptDns == "1"),
+		shieldsUp 		= 	(shieldsUp == "1"),
 		advertiseRoutes		=	advertiseRoutes,
 		hostname			=	hostname,
 		loginServer			=	loginServer,
@@ -62,6 +66,14 @@ function submitTailscaleConfig(req)
 	-- advertiseExitNode
 	if req.advertiseExitNode ~= nil then
 		uci:set("tailscaler","@settings[0]","advertiseExitNode",req.advertiseExitNode)
+	end
+	-- notAcceptDns
+	if req.notAcceptDns ~= nil then
+		uci:set("tailscaler","@settings[0]","notAcceptDns",req.notAcceptDns)
+	end
+	-- shieldsUp
+	if req.shieldsUp ~= nil then
+		uci:set("tailscaler","@settings[0]","shieldsUp",req.shieldsUp)
 	end
 	-- advertiseRoutes
 	if req.acceptRoutes ~= nil then

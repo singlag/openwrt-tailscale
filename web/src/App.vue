@@ -140,7 +140,7 @@
                     <label class="cbi-value-title">Expose subnet route to Tailscale</label>
                     <div class="cbi-value-field">
                         <div>
-                            <input type="text" class="cbi-input-text" name="advertiseroutes" placeholder="Use , separated list of network addresses and CIDRs"
+                            <input type="text" class="cbi-input-text" name="advertiseroutes" placeholder="Use , separated list of IP Address"
                                 v-model.trim="config.advertiseRoutes">
                         </div>
                         <div class="cbi-value-description">

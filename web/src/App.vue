@@ -6,7 +6,7 @@
             Tailscale creates a virtual network between hosts.<br>
             It can be used as a simple mechanism to allow remote administration without port forwarding or even be configured to allow peers in your virtual network to proxy traffic through connected devices as an ad-hoc vpn.<br>
             Offical Site : <a href="https://tailscale.com" target="_blank">Tailscale</a><br>
-            How to install : <a href="https://openwrt.org/docs/guide-user/services/vpn/tailscale/start" target="_blank">OpenWrt Tailscale User Guide</a><br>
+            Initial Setup : <a href="https://openwrt.org/docs/guide-user/services/vpn/tailscale/start" target="_blank">OpenWrt Tailscale User Guide</a><br>
             Admin Console : <a href="https://login.tailscale.com/admin" target="_blank">Tailscale Admin Console</a><br>
             Latest Tailscale : <a href="https://pkgs.tailscale.com/stable/" target="_blank">Tailscale Packages - stable track : tailscale_1.78.1_mipsle.tgz</a><br>
             <!--

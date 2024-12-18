@@ -131,7 +131,7 @@
                             <label></label>
                         </div>
                         <div class="cbi-value-description">
-                            If an Admin has created subnet routes for your tailnet, then Tailscale will route your device's traffic for the advertised subnets to the appropriate subnet router. (Link to other subnet)
+                            If an Admin has created subnet routes for your tailnet, then Tailscale will route your device's traffic for the advertised subnets to the appropriate subnet router. (Join to other subnet)
                         </div>
                     </div>
                 </div>
@@ -144,7 +144,7 @@
                                 v-model.trim="config.advertiseRoutes">
                         </div>
                         <div class="cbi-value-description">
-                            Share subnets such as <code>192.168.1.0/24</code> to other devices, leave Blank to disable (Remeber to enable "Subnet Route" at Admin Console)
+                            Share your subnets such as <code>192.168.1.0/24</code> to other devices, leave Blank to disable (Remeber to enable "Subnet Route" at Admin Console)
                         </div>
                     </div>
                 </div>

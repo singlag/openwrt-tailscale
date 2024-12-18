@@ -6,7 +6,8 @@
             Tailscale creates a virtual network between hosts.<br>
             It can be used as a simple mechanism to allow remote administration without port forwarding or even be configured to allow peers in your virtual network to proxy traffic through connected devices as an ad-hoc vpn.<br>
             Offical Site : <a href="https://tailscale.com" target="_blank">Tailscale</a><br>
-            OpenWrt : <a href="https://openwrt.org/docs/guide-user/services/vpn/tailscale/start" target="_blank">OpenWrt Tailscale</a><br>
+            OpenWrt User Guide : <a href="https://openwrt.org/docs/guide-user/services/vpn/tailscale/start" target="_blank">OpenWrt Tailscale</a><br>
+            Admin Console : <a href="https://login.tailscale.com/admin" target="_blank">Tailscale Admin Console</a><br>
         </div>
         <!--  -->
         <div class="cbi-section">
@@ -64,26 +65,6 @@
             <div class="cbi-section-node">
                 <!--  -->
                 <div class="cbi-value">
-                    <label class="cbi-value-title">Advertise Exit Node</label>
-                    <div class="cbi-value-field">
-                        <div class="cbi-checkbox">
-                            <input name="advertiseExitNode" type="checkbox" :value="false" v-model="config.advertiseExitNode">
-                            <label></label>
-                        </div>
-                    </div>
-                </div>
-                <!--  -->
-                <div class="cbi-value">
-                    <label class="cbi-value-title">Accept Routes</label>
-                    <div class="cbi-value-field">
-                        <div class="cbi-checkbox">
-                            <input name="acceptroutes" type="checkbox" :value="false" v-model="config.acceptRoutes">
-                            <label></label>
-                        </div>
-                    </div>
-                </div>
-                <!--  -->
-                <div class="cbi-value">
                     <label class="cbi-value-title">Machine Name</label>
                     <div class="cbi-value-field">
                         <div>
@@ -97,7 +78,27 @@
                 </div>
                 <!--  -->
                 <div class="cbi-value">
-                    <label class="cbi-value-title">Advertise Routes Subnet</label>
+                    <label class="cbi-value-title">Advertise Exit Node</label>
+                    <div class="cbi-value-field">
+                        <div class="cbi-checkbox">
+                            <input name="advertiseExitNode" type="checkbox" :value="false" v-model="config.advertiseExitNode">
+                            <label></label>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="cbi-value">
+                    <label class="cbi-value-title">Accept Subnet Routes</label>
+                    <div class="cbi-value-field">
+                        <div class="cbi-checkbox">
+                            <input name="acceptroutes" type="checkbox" :value="false" v-model="config.acceptRoutes">
+                            <label></label>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="cbi-value">
+                    <label class="cbi-value-title">Expose subnet route to Tailscale</label>
                     <div class="cbi-value-field">
                         <div>
                             <input type="text" class="cbi-input-text" name="advertiseroutes" placeholder="IP Address and use , separated list of network addresses and CIDRs"

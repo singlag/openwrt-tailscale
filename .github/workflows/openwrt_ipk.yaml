@@ -11,7 +11,7 @@ on:
       target:
         description: 'build target ["arm64", "x64", "mipsel"]'
         required: true
-        default: "x64"
+        default: "mipsel"
 env:
   TZ: Asia/Hong_Kong
   IPK_NAME: luci-app-tailscaler

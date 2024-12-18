@@ -7,6 +7,7 @@ USE_PROCD=1
 get_config() {
 	config_get_bool enabled $1 enabled 1
 	config_get_bool acceptRoutes $1 acceptRoutes 0
+	config_get_bool advertiseExitNode $1 advertiseExitNode 0
 	config_get loginServer $1 loginServer ""
 	config_get authkey $1 authkey ""
 	config_get hostname $1 hostname ""
@@ -38,6 +39,9 @@ start_service() {
 	fi
 	if [ "$acceptRoutes" = 1 ]; then
 		procd_append_param command --accept-routes
+	fi
+	if [ "$advertiseExitNode" = 1 ]; then
+		procd_append_param command --advertise-exit-node
 	fi
 	if [ -n "$advertiseRoutes" ];then
 		procd_append_param command --advertise-routes "$advertiseRoutes"

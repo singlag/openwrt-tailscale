@@ -85,6 +85,32 @@
                 </div>
                 <!--  -->
                 <div class="cbi-value">
+                    <label class="cbi-value-title">Not use Tailscale DNS</label>
+                    <div class="cbi-value-field">
+                        <div class="cbi-checkbox">
+                            <input name="notAcceptDns" type="checkbox" :value="false" v-model="config.notAcceptDns">
+                            <label></label>
+                        </div>
+                        <div class="cbi-value-description">
+                            NOT Accept DNS configuration from the admin console. (Use local DNS)
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="cbi-value">
+                    <label class="cbi-value-title">Block incoming connections (shields-up)</label>
+                    <div class="cbi-value-field">
+                        <div class="cbi-checkbox">
+                            <input name="shieldsUp" type="checkbox" :value="false" v-model="config.shieldsUp">
+                            <label></label>
+                        </div>
+                        <div class="cbi-value-description">
+                            Block incoming connections from other devices on your Tailscale network. Useful for personal devices that only make outgoing connections.
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="cbi-value">
                     <label class="cbi-value-title">Advertise Exit Node</label>
                     <div class="cbi-value-field">
                         <div class="cbi-checkbox">

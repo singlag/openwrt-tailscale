@@ -105,7 +105,7 @@
                             <label></label>
                         </div>
                         <div class="cbi-value-description">
-                            If an Admin has created subnet routes for your tailnet, then Tailscale will route your device's traffic for the advertised subnets to the appropriate subnet router
+                            If an Admin has created subnet routes for your tailnet, then Tailscale will route your device's traffic for the advertised subnets to the appropriate subnet router. (Link to other subnet)
                         </div>
                     </div>
                 </div>
@@ -114,11 +114,11 @@
                     <label class="cbi-value-title">Expose subnet route to Tailscale</label>
                     <div class="cbi-value-field">
                         <div>
-                            <input type="text" class="cbi-input-text" name="advertiseroutes" placeholder="IP Address and use , separated list of network addresses and CIDRs"
+                            <input type="text" class="cbi-input-text" name="advertiseroutes" placeholder="Use , separated list of network addresses and CIDRs"
                                 v-model.trim="config.advertiseRoutes">
                         </div>
                         <div class="cbi-value-description">
-                            Example : <code>192.168.100.0/24</code> (Remeber to enable "Subnet Route" at Admin Console)
+                            Share subnets to other devices<code>192.168.1.0/24</code> (Remeber to enable "Subnet Route" at Admin Console)
                         </div>
                     </div>
                 </div>

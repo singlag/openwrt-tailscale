@@ -2,6 +2,8 @@ config settings
 	option enabled '0'
 	option acceptRoutes '0'
 	option advertiseExitNode '0'
+	option notAcceptDns '0'
+	option shieldsUp '0'
 	option advertiseRoutes ''
 	option hostname ''
 	option loginServer ''

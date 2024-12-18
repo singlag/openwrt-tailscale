@@ -92,7 +92,7 @@
                             <label></label>
                         </div>
                         <div class="cbi-value-description">
-                            Use local DNS, you need to map Tailscale IP addresses to local DNS by yourself. (Check /etc/resolv.conf)
+                            Use local DNS, then you need to map Tailscale IP addresses to local DNS by yourself. (Check /etc/resolv.conf)
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,9 @@
             Offical Site : <a href="https://tailscale.com" target="_blank">Tailscale</a><br>
             Initial Setup : <a href="https://openwrt.org/docs/guide-user/services/vpn/tailscale/start" target="_blank">OpenWrt Tailscale User Guide</a><br>
             Admin Console : <a href="https://login.tailscale.com/admin" target="_blank">Tailscale Admin Console</a><br>
-            Latest Tailscale : <a href="https://pkgs.tailscale.com/stable/" target="_blank">Tailscale Packages - stable track : tailscale_1.78.1_mipsle.tgz</a><br>
+            Latest Tailscale : <a href="https://pkgs.tailscale.com/stable/" target="_blank">Tailscale Packages - stable track - Eg : tailscale_1.78.1_mipsle.tgz</a><br>
+                Unzip and Read <a href="https://openwrt.org/docs/guide-user/services/vpn/tailscale/start" target="_blank">Installation on storage constrained devices</a><br>
+            
             <!--
             uname -m
             echo -n I | hexdump -o | awk '{ print (substr($2,6,1)=="1") ? "le" : ""; exit }'

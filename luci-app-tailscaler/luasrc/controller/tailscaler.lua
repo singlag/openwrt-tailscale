@@ -20,6 +20,7 @@ function getTailscaleConfig()
     local uci  				= 	require "luci.model.uci".cursor()
     local enabled   		= 	uci:get_first("tailscaler", "settings", "enabled")
     local acceptRoutes  	= 	uci:get_first("tailscaler", "settings", "acceptRoutes")
+    local advertiseExitNode  	= 	uci:get_first("tailscaler", "settings", "advertiseExitNode")
     local hostname   		= 	uci:get_first("tailscaler", "settings", "hostname")
     local advertiseRoutes   = 	uci:get_first("tailscaler", "settings", "advertiseRoutes")
     local loginServer  		= 	uci:get_first("tailscaler", "settings", "loginServer")
@@ -27,6 +28,7 @@ function getTailscaleConfig()
     local result 			= 	{
         enabled    			= 	(enabled == "1"),
 		acceptRoutes 		= 	(acceptRoutes == "1"),
+		advertiseExitNode 	= 	(advertiseExitNode == "1"),
 		advertiseRoutes		=	advertiseRoutes,
 		hostname			=	hostname,
 		loginServer			=	loginServer,
@@ -56,6 +58,10 @@ function submitTailscaleConfig(req)
 	-- acceptRoutes
 	if req.acceptRoutes ~= nil then
 		uci:set("tailscaler","@settings[0]","acceptRoutes",req.acceptRoutes)
+	end
+	-- advertiseExitNode
+	if req.advertiseExitNode ~= nil then
+		uci:set("tailscaler","@settings[0]","advertiseExitNode",req.advertiseExitNode)
 	end
 	-- advertiseRoutes
 	if req.acceptRoutes ~= nil then

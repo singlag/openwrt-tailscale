@@ -3,15 +3,17 @@
         <!--  -->
         <h2>Tailscale</h2>
         <div class="cbi-map-descr">
-            Tailscale 连接您的设备，以便轻松访问远程资源。<br>
-            详情请查看 <a href="https://tailscale.com" target="_blank">tailscale</a>
+            Tailscale creates a virtual network between hosts.<br>
+            It can be used as a simple mechanism to allow remote administration without port forwarding or even be configured to allow peers in your virtual network to proxy traffic through connected devices as an ad-hoc vpn.<br>
+            Offical Site : <a href="https://tailscale.com" target="_blank">Tailscale</a><br>
+            OpenWrt : <a href="https://openwrt.org/docs/guide-user/services/vpn/tailscale/start" target="_blank">OpenWrt Tailscale</a><br>
         </div>
         <!--  -->
         <div class="cbi-section">
-            <h3>服务状态</h3>
+            <h3>Service Status</h3>
             <div class="cbi-section-node">
                 <div class="cbi-value cbi-value-last">
-                    <label class="cbi-value-title">启用</label>
+                    <label class="cbi-value-title">Enable</label>
                     <div class="cbi-value-field">
                         <div class="cbi-checkbox">
                             <input name="enabled" type="checkbox" :value="false" v-model="config.enabled">
@@ -20,17 +22,17 @@
                     </div>
                 </div>
                 <div class="cbi-value cbi-value-last">
-                    <label class="cbi-value-title">服务状态</label>
+                    <label class="cbi-value-title">Service Status</label>
                     <div class="cbi-value-field">
-                        <a v-if="loading">加载中...</a>
+                        <a v-if="loading">Loading...</a>
                         <template v-else>
                             <a v-if="status?.BackendState" style="color:green"> {{ status?.BackendState }}</a>
-                            <a v-else style="color:red">未运行</a>
+                            <a v-else style="color:red">Not running</a>
                         </template>
                     </div>
                 </div>
                 <div class="cbi-value cbi-value-last" v-if="status?.Self?.ID">
-                    <label class="cbi-value-title">当前节点</label>
+                    <label class="cbi-value-title">Current Node</label>
                     <div class="cbi-value-field">
                         <a>
                             {{ status?.Self?.ID }}
@@ -41,28 +43,38 @@
                     </div>
                 </div>
                 <div class="cbi-value cbi-value-last" v-if="status?.AuthURL">
-                    <label class="cbi-value-title">验证绑定</label>
+                    <label class="cbi-value-title">Verify Binding</label>
                     <div class="cbi-value-field">
                         <a :href="status.AuthURL" target="_blank">{{ status.AuthURL }}</a>
                     </div>
                 </div>
                 <div class="cbi-value cbi-value-last" v-if="user?.DisplayName">
-                    <label class="cbi-value-title">已绑定用户</label>
+                    <label class="cbi-value-title">Binded User</label>
                     <div class="cbi-value-field">
                         <a href="https://login.tailscale.com/admin/machines/" target="_blank">{{ user.DisplayName }}</a>
                         <br />
-                        <a @click="onLogout" style="color:green">注销登录并解除绑定</a>
+                        <a @click="onLogout" style="color:green">Log out and unbind</a>
                     </div>
                 </div>
             </div>
         </div>
         <!--  -->
         <div class="cbi-section">
-            <h3>全局设置</h3>
+            <h3>Global Settings</h3>
             <div class="cbi-section-node">
                 <!--  -->
                 <div class="cbi-value">
-                    <label class="cbi-value-title">允许组网</label>
+                    <label class="cbi-value-title">Advertise Exit Node</label>
+                    <div class="cbi-value-field">
+                        <div class="cbi-checkbox">
+                            <input name="advertiseExitNode" type="checkbox" :value="false" v-model="config.advertiseExitNode">
+                            <label></label>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="cbi-value">
+                    <label class="cbi-value-title">Accept Routes</label>
                     <div class="cbi-value-field">
                         <div class="cbi-checkbox">
                             <input name="acceptroutes" type="checkbox" :value="false" v-model="config.acceptRoutes">
@@ -72,27 +84,27 @@
                 </div>
                 <!--  -->
                 <div class="cbi-value">
-                    <label class="cbi-value-title">设备名称</label>
+                    <label class="cbi-value-title">Machine Name</label>
                     <div class="cbi-value-field">
                         <div>
                             <input type="text" class="cbi-input-text" name="hostname" v-model.trim="config.hostname"
-                                placeholder="例如: iStoreOS">
+                                placeholder="Example: iStoreOS">
                         </div>
                         <div class="cbi-value-description">
-                            留空则使用设备的名称
+                            Leave blank to use the device's name
                         </div>
                     </div>
                 </div>
                 <!--  -->
                 <div class="cbi-value">
-                    <label class="cbi-value-title">公开网段</label>
+                    <label class="cbi-value-title">Advertise Routes Subnet</label>
                     <div class="cbi-value-field">
                         <div>
-                            <input type="text" class="cbi-input-text" name="advertiseroutes" placeholder="IP地址,多个使用,分开"
+                            <input type="text" class="cbi-input-text" name="advertiseroutes" placeholder="IP Address and use , separated list of network addresses and CIDRs"
                                 v-model.trim="config.advertiseRoutes">
                         </div>
                         <div class="cbi-value-description">
-                            允许被访问的网段 <code>192.168.100.0/24</code>
+                            Example : <code>192.168.100.0/24</code>
                         </div>
                     </div>
                 </div>
@@ -100,20 +112,19 @@
         </div>
         <!--  -->
         <div class="cbi-section">
-            <h3>自定义服务器</h3>
+            <h3>Custom Server</h3>
             <div class="cbi-section-descr">
-                使用
+                Deploy a private server by
                 <a href="https://github.com/juanfont/headscale" target="_blank">headscale</a>
-                部署私有服务器
             </div>
             <div class="cbi-section-node">
                 <!--  -->
                 <div class="cbi-value">
-                    <label class="cbi-value-title">服务器地址</label>
+                    <label class="cbi-value-title">Serve Address</label>
                     <div class="cbi-value-field">
                         <div>
                             <input type="text" class="cbi-input-text" name="loginserver" v-model.trim="config.loginServer"
-                                placeholder="server 服务器地址,留空则不使用">
+                                placeholder="server IP Address, Leave blank if not used.">
                         </div>
                     </div>
                 </div>
@@ -123,7 +134,7 @@
                     <div class="cbi-value-field">
                         <div>
                             <input type="password" class="cbi-input-password" name="authkey" v-model.trim="config.authkey"
-                                placeholder="自定义令牌,留空则不使用">
+                                placeholder="Tokens, Leave blank if not used.">
                         </div>
                     </div>
                 </div>
@@ -131,7 +142,7 @@
         </div>
         <!--  -->
         <span class="cbi-page-actions control-group">
-            <button class="btn cbi-button cbi-button-apply" @click="onSubmit" :disabled="disabled">保存并应用</button>
+            <button class="btn cbi-button cbi-button-apply" @click="onSubmit" :disabled="disabled">Save and Apply</button>
         </span>
     </div>
 </template>
@@ -247,7 +258,7 @@ const onSubmit = async () => {
 
 }
 const onLogout = async () => {
-    if (!confirm("是否注销当前登录并且解绑当前设备？")) {
+    if (!confirm("Do you want to log out and unbind the current device?")) {
         return
     }
     try {

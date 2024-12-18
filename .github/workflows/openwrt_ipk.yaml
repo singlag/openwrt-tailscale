@@ -7,7 +7,7 @@ on:
       version:
         description: "ipk version"
         required: true
-        default: "0.0.2"
+        default: "0.0.3"
       target:
         description: 'build target ["arm64", "x64", "mipsel"]'
         required: true

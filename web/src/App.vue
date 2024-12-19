@@ -167,7 +167,7 @@
                     <div class="cbi-value-field">
                         <div>
                             <input type="text" class="cbi-input-text" name="loginserver" v-model.trim="config.loginServer"
-                                placeholder="server IP, leave blank if not used.">
+                                placeholder="Server IP, leave blank if not used.">
                         </div>
                     </div>
                 </div>
@@ -177,7 +177,7 @@
                     <div class="cbi-value-field">
                         <div>
                             <input type="password" class="cbi-input-password" name="authkey" v-model.trim="config.authkey"
-                                placeholder="Tokens, Leave blank if not used.">
+                                placeholder="Tokens, leave blank if not used.">
                         </div>
                     </div>
                 </div>

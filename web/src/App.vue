@@ -163,11 +163,11 @@
             <div class="cbi-section-node">
                 <!--  -->
                 <div class="cbi-value">
-                    <label class="cbi-value-title">Serve Address</label>
+                    <label class="cbi-value-title">Server Address</label>
                     <div class="cbi-value-field">
                         <div>
                             <input type="text" class="cbi-input-text" name="loginserver" v-model.trim="config.loginServer"
-                                placeholder="server IP Address, Leave blank if not used.">
+                                placeholder="server IP, leave blank if not used.">
                         </div>
                     </div>
                 </div>

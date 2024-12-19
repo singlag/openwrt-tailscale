@@ -108,7 +108,7 @@
                             <label></label>
                         </div>
                         <div class="cbi-value-description">
-                            Block incoming connections from other devices on your Tailscale network including pings. Useful for personal devices that only make outgoing connections. (
+                            Block incoming connections from other devices on your Tailscale network including pings. Useful for personal devices that only make outgoing connections.
                         </div>
                     </div>
                 </div>

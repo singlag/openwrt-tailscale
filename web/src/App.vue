@@ -147,7 +147,7 @@
                                 v-model.trim="config.advertiseRoutes">
                         </div>
                         <div class="cbi-value-description">
-                            Share your subnets such as <code>192.168.1.0/24</code> to other devices, leave Blank to disable (Remeber to enable "Subnet Route" at Admin Console)
+                            Share your subnets such as <code>192.168.1.0/24</code> to other devices, leave blank to disable (Remeber to enable "Subnet Route" at Admin Console)
                         </div>
                     </div>
                 </div>

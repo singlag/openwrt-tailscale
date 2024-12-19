@@ -9,7 +9,7 @@
             Initial Setup : <a href="https://openwrt.org/docs/guide-user/services/vpn/tailscale/start" target="_blank">OpenWrt Tailscale User Guide</a><br>
             Admin Console : <a href="https://login.tailscale.com/admin" target="_blank">Tailscale Admin Console</a><br>
             Latest Tailscale : <a href="https://pkgs.tailscale.com/stable/" target="_blank">Tailscale Packages - stable track - Eg : tailscale_1.78.1_mipsle.tgz</a><br>
-            Latest Tailscale Tiny : <a href="https://github.com/Admonstrator/glinet-tailscale-updater/releases" target="_blank">Tailscale Tiny Combined Binary</a><br>
+            Latest Combined Binary : <a href="https://github.com/Admonstrator/glinet-tailscale-updater/releases" target="_blank">Tailscale Tiny Combined Binary</a><br>
             
             <!--
             uname -m

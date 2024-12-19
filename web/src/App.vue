@@ -9,8 +9,8 @@
             Initial Setup : <a href="https://openwrt.org/docs/guide-user/services/vpn/tailscale/start" target="_blank">OpenWrt Tailscale User Guide</a><br>
             Admin Console : <a href="https://login.tailscale.com/admin" target="_blank">Tailscale Admin Console</a><br>
             Latest Tailscale : <a href="https://pkgs.tailscale.com/stable/" target="_blank">Tailscale Packages - stable track - Eg : tailscale_1.78.1_mipsle.tgz</a><br>
-            Latest Combined Binary : <a href="https://github.com/Admonstrator/glinet-tailscale-updater/releases" target="_blank">Tailscale Tiny Combined Binary</a><br>
-                -Version 1.66.4 non-upx packed conbined executables run ok on MT7620 128MB ram devices with usb storage
+            Latest Combined Binary : <a href="https://github.com/singlag/glinet-tailscale-updater/releases" target="_blank">Tailscale Tiny Combined Binary</a><br>
+                -Version 1.66.4 non-upx packed combined executables run ok on MT7620 128MB ram devices with usb storage
                 -Version 1.78.1 run slow and high memory usage on MT7620 128MB ram devices with usb storage
             <!--
             uname -m

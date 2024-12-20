@@ -45,7 +45,7 @@ declare interface ResponseStatusUser {
 declare interface ResponseStatusPeer {
     DNSName: string
     TailscaleIPs: string[]
-    ExitNodeOption: boolean
+    ExitNodeOption: string
 }
 declare interface ResponseStatusSelf {
     ID: string

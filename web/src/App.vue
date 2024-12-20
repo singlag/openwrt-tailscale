@@ -70,11 +70,11 @@
 
 		<label class="cbi-value-title">Tailscale IPs</label>
                     <div class="cbi-value-field">
-                        <a>{{ Self.TailscaleIPs.join(', ') }}</a>
+                        <a>{{ status.Self.TailscaleIPs.join(', ') }}</a>
                     </div>
 		<label class="cbi-value-title">Relay</label>
                     <div class="cbi-value-field">
-                        <a>{{ Self.Relay }}</a>
+                        <a>{{ status.Self.Relay }}</a>
                     </div>
 		    
             </div>

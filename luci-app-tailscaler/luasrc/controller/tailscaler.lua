@@ -22,9 +22,11 @@ function getTailscaleConfig()
     local acceptRoutes  	= 	uci:get_first("tailscaler", "settings", "acceptRoutes")
     local advertiseExitNode  	= 	uci:get_first("tailscaler", "settings", "advertiseExitNode")
     local notAcceptDns  	= 	uci:get_first("tailscaler", "settings", "notAcceptDns")
-    local shieldsUp  	= 	uci:get_first("tailscaler", "settings", "shieldsUp")
+    local shieldsUp  		= 	uci:get_first("tailscaler", "settings", "shieldsUp")
+    local statefulFiltering  	= 	uci:get_first("tailscaler", "settings", "statefulFiltering")
     local hostname   		= 	uci:get_first("tailscaler", "settings", "hostname")
-    local advertiseRoutes   = 	uci:get_first("tailscaler", "settings", "advertiseRoutes")
+    local customFlags   	= 	uci:get_first("tailscaler", "settings", "customFlags")
+    local advertiseRoutes   	= 	uci:get_first("tailscaler", "settings", "advertiseRoutes")
     local loginServer  		= 	uci:get_first("tailscaler", "settings", "loginServer")
     local authkey   		= 	uci:get_first("tailscaler", "settings", "authkey")
     local result 			= 	{
@@ -33,8 +35,10 @@ function getTailscaleConfig()
 		advertiseExitNode 	= 	(advertiseExitNode == "1"),
 		notAcceptDns 		= 	(notAcceptDns == "1"),
 		shieldsUp 		= 	(shieldsUp == "1"),
-		advertiseRoutes		=	advertiseRoutes,
+		statefulFiltering 	= 	(statefulFiltering == "1"),
+		advertiseRoutes			=	advertiseRoutes,
 		hostname			=	hostname,
+		customFlags			=	customFlags,
 		loginServer			=	loginServer,
 		authkey				=	authkey,
     }
@@ -59,6 +63,10 @@ function submitTailscaleConfig(req)
 	if req.hostname ~= nil then
 		uci:set("tailscaler","@settings[0]","hostname",req.hostname)
 	end
+	-- customFlags
+	if req.customFlags ~= nil then
+		uci:set("tailscaler","@settings[0]","customFlags",req.customFlags)
+	end
 	-- acceptRoutes
 	if req.acceptRoutes ~= nil then
 		uci:set("tailscaler","@settings[0]","acceptRoutes",req.acceptRoutes)
@@ -74,6 +82,10 @@ function submitTailscaleConfig(req)
 	-- shieldsUp
 	if req.shieldsUp ~= nil then
 		uci:set("tailscaler","@settings[0]","shieldsUp",req.shieldsUp)
+	end
+	-- statefulFiltering
+	if req.statefulFiltering ~= nil then
+		uci:set("tailscaler","@settings[0]","statefulFiltering",req.statefulFiltering)
 	end
 	-- advertiseRoutes
 	if req.acceptRoutes ~= nil then

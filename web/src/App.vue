@@ -67,6 +67,16 @@
                         <a @click="onLogout" style="color:green">Log out and unbind</a>
                     </div>
                 </div>
+
+		<label class="cbi-value-title">Tailscale IPs</label>
+                    <div class="cbi-value-field">
+                        <a>{{ status.Self.TailscaleIPs.join(', ') }}</a>
+                    </div>
+		<label class="cbi-value-title">Relay</label>
+                    <div class="cbi-value-field">
+                        <a>{{ status.Self.Relay }}</a>
+                    </div>
+		    
             </div>
         </div>
 
@@ -76,11 +86,11 @@
             <h3>Peers Status</h3>
             <div class="cbi-section-node">
                 <div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
-                    <label class="cbi-value-title">Peer DNS Name</label>
+                    <label class="cbi-value-title">DNS Name</label>
                     <div class="cbi-value-field">
                         <a>{{ peer.DNSName }}</a>
                     </div>
-                    <label class="cbi-value-title">Peer Tailscale IPs</label>
+                    <label class="cbi-value-title">Tailscale IPs</label>
                     <div class="cbi-value-field">
                         <a>{{ peer.TailscaleIPs.join(', ') }}</a>
                     </div>
@@ -89,6 +99,12 @@
                     <div class="cbi-value-field">
                         <a>{{ peer.ExitNodeOption }}</a>
                     </div>
+
+                    <label class="cbi-value-title">Relay</label>
+                    <div class="cbi-value-field">
+                        <a>{{ peer.Relay }}</a>
+                    </div>
+
                 </div>
             </div>
         </div>

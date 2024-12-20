@@ -87,7 +87,7 @@
 
         <!--  -->
         <div class="cbi-section">
-            <h3>Peers Status</h3>
+            <a v-if="status?.BackendState">  <h3>Peers Status</h3> </a>
             <div class="cbi-section-node">
 		<div v-for="(peer, key) in status?.Peer" :key="key" v-if="peer?.Active" class="cbi-value cbi-value-last">
 			

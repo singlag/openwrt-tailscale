@@ -215,7 +215,7 @@
                                 placeholder="Example: --netfilter-mode=off --snat-subnet-routes=false">
                         </div>
                         <div class="cbi-value-description">
-                            leave blank if not used.
+                            Leave blank if not used.
                         </div>
                     </div>
                 </div>

@@ -80,7 +80,7 @@
                 		<a>{{ status?.Self?.Relay ?? 'N/A' }}</a>
             		</div>
         	</div>		    
-		    
+		
             </div>
         </div>
 
@@ -90,10 +90,12 @@
             <h3>Peers Status</h3>
             <div class="cbi-section-node">
                 <div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
+			
                     <label class="cbi-value-title">DNS Name</label>
                     <div class="cbi-value-field">
                         <a>{{ peer.DNSName }}</a>
                     </div>
+			
                     <label class="cbi-value-title">Tailscale IPs</label>
                     <div class="cbi-value-field">
                         <a>{{ peer.TailscaleIPs.join(', ') }}</a>
@@ -108,7 +110,7 @@
                     <div class="cbi-value-field">
                         <a>{{ peer.Relay }}</a>
                     </div>
-
+			
                 </div>
             </div>
         </div>

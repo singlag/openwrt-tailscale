@@ -10,9 +10,11 @@ get_config() {
 	config_get_bool advertiseExitNode $1 advertiseExitNode 0
 	config_get_bool notAcceptDns $1 notAcceptDns 0
 	config_get_bool shieldsUp $1 shieldsUp 0
+	config_get_bool statefulFiltering $1 statefulFiltering 0
 	config_get loginServer $1 loginServer ""
 	config_get authkey $1 authkey ""
 	config_get hostname $1 hostname ""
+	config_get customFlags $1 customFlags ""
 	config_get advertiseRoutes $1 advertiseRoutes ""
 }
 start_service() {
@@ -39,6 +41,9 @@ start_service() {
 	if [ -n "$hostname" ]; then
 		procd_append_param command --hostname "$hostname" 
 	fi
+	if [ -n "$customFlags" ]; then
+		procd_append_param command "$customFlags" 
+	fi
 	if [ "$acceptRoutes" = 1 ]; then
 		procd_append_param command --accept-routes
 	fi
@@ -50,6 +55,9 @@ start_service() {
 	fi
 	if [ "$shieldsUp" = 1 ]; then
 		procd_append_param command --shields-up
+	fi
+	if [ "$statefulFiltering" = 1 ]; then
+		procd_append_param command --stateful-filtering
 	fi
 	if [ -n "$advertiseRoutes" ];then
 		procd_append_param command --advertise-routes "$advertiseRoutes"

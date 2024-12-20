@@ -192,10 +192,10 @@
                 </div>
                 <!--  -->
                 <div class="cbi-value">
-                    <label class="cbi-value-title">Custom Flags for running tailscale up </label>
+                    <label class="cbi-value-title">Custom Flags for running tailscale up</label>
                     <div class="cbi-value-field">
                         <div>
-                            <input type="text" class="cbi-input-text" name="hostname" v-model.trim="config.hostname"
+                            <input type="text" class="cbi-input-text" name="customFlags" v-model.trim="config.customFlags"
                                 placeholder="Example: --netfilter-mode=off --snat-subnet-routes=false">
                         </div>
                         <div class="cbi-value-description">

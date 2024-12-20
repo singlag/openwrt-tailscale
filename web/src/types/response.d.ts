@@ -9,7 +9,7 @@ declare interface ResponseConfig {
     shieldsUp?: boolean
     statefulFiltering?: boolean
     hostname?: string
-    customFlag?: string
+    customFlags?: string
     advertiseRoutes?: string
     loginServer?: string
     authkey?: string
@@ -31,6 +31,11 @@ declare interface ResponseStatus {
     User?: {
         [key: string]: ResponseStatusUser
     }
+    peer?: {
+        [key: string]: ResponseStatusPeer
+    }
+    
+    
 }
 declare interface ResponseStatusUser {
     ID?: number
@@ -38,6 +43,11 @@ declare interface ResponseStatusUser {
     DisplayName?: string
     ProfilePicURL?: string
     Roles?: any[]
+}
+declare interface ResponseStatusPeer {
+    DNSName: string
+    TailscaleIPs: string[]
+    ExitNodeOption: boolean
 }
 declare interface ResponseStatusSelf {
     ID: string

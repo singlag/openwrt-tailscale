@@ -7,7 +7,9 @@ declare interface ResponseConfig {
     advertiseExitNode?: boolean
     notAcceptDns?: boolean
     shieldsUp?: boolean
+    statefulFiltering?: boolean
     hostname?: string
+    customFlag?: string
     advertiseRoutes?: string
     loginServer?: string
     authkey?: string

@@ -68,14 +68,18 @@
                     </div>
                 </div>
 
-		<label class="cbi-value-title">Tailscale IPs</label>
-                    <div class="cbi-value-field">
-                        <a>{{ status.Self.TailscaleIPs.join(', ') }}</a>
-                    </div>
-		<label class="cbi-value-title">Relay</label>
-                    <div class="cbi-value-field">
-                        <a>{{ status.Self.Relay }}</a>
-                    </div>
+        	<div class="cbi-value cbi-value-last" v-if="status?.Self?.TailscaleIPs">
+            		<label class="cbi-value-title">Tailscale IPs</label>
+            		<div class="cbi-value-field">
+                		<a>{{ status?.Self?.TailscaleIPs?.join(', ') ?? 'N/A' }}</a>
+            		</div>
+        	</div>
+        	<div class="cbi-value cbi-value-last" v-if="status?.Self?.Relay">
+            		<label class="cbi-value-title">Relay</label>
+            		<div class="cbi-value-field">
+                		<a>{{ status?.Self?.Relay ?? 'N/A' }}</a>
+            		</div>
+        	</div>		    
 		    
             </div>
         </div>

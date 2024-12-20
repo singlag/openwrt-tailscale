@@ -151,6 +151,33 @@
                         </div>
                     </div>
                 </div>
+                <!--  -->
+                <div class="cbi-value">
+                    <label class="cbi-value-title">Enable stateful filtering</label>
+                    <div class="cbi-value-field">
+                        <div class="cbi-checkbox">
+                            <input name="statefulFiltering" type="checkbox" :value="false" v-model="config.statefulFiltering">
+                            <label></label>
+                        </div>
+                        <div class="cbi-value-description">
+                            When enabled, inbound packets with another node's destination IP are dropped unless they are a part of a tracked outbound connection from that node. 
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="cbi-value">
+                    <label class="cbi-value-title">Custom Flags for running tailscale up </label>
+                    <div class="cbi-value-field">
+                        <div>
+                            <input type="text" class="cbi-input-text" name="hostname" v-model.trim="config.hostname"
+                                placeholder="Example: --netfilter-mode=on --snat-subnet-routes=false">
+                        </div>
+                        <div class="cbi-value-description">
+                            leave blank if not used.
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
         <!--  -->

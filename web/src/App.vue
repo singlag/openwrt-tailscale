@@ -97,7 +97,7 @@
                         <a v-if="peer.Active">{{ peer.DNSName.split('.')[0] }}</a>
                     </div>
 			
-                    <label v-if="peer.Active" class="cbi-value-title">Tailscale IPs</label>
+                    <label v-if="peer.Active" class="cbi-value-title">IP</label>
                     <div class="cbi-value-field">
                         <a v-if="peer.Active">{{ peer.TailscaleIPs.join(', ') }}</a>
                     </div>

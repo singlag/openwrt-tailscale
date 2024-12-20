@@ -87,7 +87,7 @@
 
         <!--  -->
         <div class="cbi-section">
-            <a v-if="status?.BackendState">  <h3>Peers Status</h3> </a>
+            <a v-if="status?.BackendState"> <h3>Peers Status</h3> </a>
             <div class="cbi-section-node">
 		<!-- Ensure that peer is Active and process DNSName -->
 		<div v-for="(peer, key) in status?.Peer" :key="key" v-if="peer?.Active" class="cbi-value cbi-value-last">

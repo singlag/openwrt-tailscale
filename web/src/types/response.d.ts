@@ -31,11 +31,9 @@ declare interface ResponseStatus {
     User?: {
         [key: string]: ResponseStatusUser
     }
-    peer?: {
+    Peer?: {
         [key: string]: ResponseStatusPeer
     }
-    
-    
 }
 declare interface ResponseStatusUser {
     ID?: number

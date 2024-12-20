@@ -69,6 +69,32 @@
                 </div>
             </div>
         </div>
+
+
+        <!--  -->
+        <div class="cbi-section">
+            <h3>Peers Status</h3>
+            <div class="cbi-section-node">
+                <div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
+                    <label class="cbi-value-title">Peer DNS Name</label>
+                    <div class="cbi-value-field">
+                        <a>{{ peer.DNSName }}</a>
+                    </div>
+                    <label class="cbi-value-title">Peer Tailscale IPs</label>
+                    <div class="cbi-value-field">
+                        <a>{{ peer.TailscaleIPs.join(', ') }}</a>
+                    </div>
+					
+                    <label class="cbi-value-title">Is exit node</label>
+                    <div class="cbi-value-field">
+                        <a>{{ peer.ExitNodeOption }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
         <!--  -->
         <div class="cbi-section">
             <h3>Global Settings</h3>

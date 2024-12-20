@@ -170,7 +170,7 @@
                     <div class="cbi-value-field">
                         <div>
                             <input type="text" class="cbi-input-text" name="hostname" v-model.trim="config.hostname"
-                                placeholder="Example: --netfilter-mode=on --snat-subnet-routes=false">
+                                placeholder="Example: --netfilter-mode=off --snat-subnet-routes=false">
                         </div>
                         <div class="cbi-value-description">
                             leave blank if not used.

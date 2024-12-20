@@ -89,7 +89,7 @@
         <div class="cbi-section">
             <h3>Peers Status</h3>
             <div class="cbi-section-node">
-		<div v-for="(peer, key) in status?.Peer" :key="key" v-if="peer.Active" class="cbi-value cbi-value-last">
+		<div v-for="(peer, key) in status?.Peer" :key="key" v-if="peer?.Active" class="cbi-value cbi-value-last">
 			
                     <label class="cbi-value-title">DNS Name</label>
                     <div class="cbi-value-field">

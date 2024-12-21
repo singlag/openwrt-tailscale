@@ -90,7 +90,7 @@
             <a v-if="status?.BackendState"> <h3>Peers Status</h3> </a>
             <div class="cbi-section-node">
 		<!-- Ensure that peer is Active and process DNSName -->
-		<div v-for="(peer, key) in status?.Peer" :key="key" v-if="peer.Online === true" class="cbi-value cbi-value-last">
+		<div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
 			
                     <label v-if="peer.Online === true" class="cbi-value-title">DNS Name</label>
                     <div class="cbi-value-field">

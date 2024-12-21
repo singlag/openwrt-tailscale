@@ -90,18 +90,20 @@
             <a v-if="status?.BackendState"> <h3>Peers Status</h3> </a>
             <div class="cbi-section-node">
 
+		<p align="center">
+			
 		<div class="cbi-value-row">
 			<div class="cbi-value-column">
-				<label style="text-align:center;" class="cbi-value-title">DNS Name</label>
+				<label class="cbi-value-title">DNS Name</label>
 			</div>
 			<div class="cbi-value-column">
-				<label style="text-align:center;" class="cbi-value-title">IP</label>
+				<label class="cbi-value-title">IP</label>
 			</div>
 			<div class="cbi-value-column">
-				<label style="text-align:center;" class="cbi-value-title">Is exit node</label>
+				<label class="cbi-value-title">Is exit node</label>
 			</div>
 			<div class="cbi-value-column">
-				<label style="text-align:center;" class="cbi-value-title">Relay</label>
+				<label class="cbi-value-title">Relay</label>
 			</div>
 		</div>
 		    
@@ -135,6 +137,8 @@
 
 			</div>
                 </div>
+		    
+		</p>
 		    
             </div>
 	</div>

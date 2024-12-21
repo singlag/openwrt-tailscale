@@ -43,7 +43,7 @@ declare interface ResponseStatusUser {
     Roles?: any[]
 }
 declare interface ResponseStatusPeer {
-    Active: boolean
+    Online: boolean
     DNSName: string
     TailscaleIPs: string[]
     ExitNodeOption: string

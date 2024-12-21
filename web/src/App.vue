@@ -91,7 +91,7 @@
             <div class="cbi-section-node">
 		<!-- Ensure that peer is Active and process DNSName -->
 		<div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
-			<div class="cbi-value-row" v-if="peer.Online === true">
+			<div class="cbi-value-column" v-if="peer.Online === true">
 
                     			<label class="cbi-value-title">DNS Name</label>
                     			<div class="cbi-value-field">

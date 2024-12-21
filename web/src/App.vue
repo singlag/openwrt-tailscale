@@ -90,31 +90,26 @@
             <a v-if="status?.BackendState"> <h3>Peers Status</h3> </a>
             <div class="cbi-section-node">
 		<!-- Ensure that peer is Active and process DNSName -->
+		    <label class="cbi-value-title">DNS Name</label>
+		    <label class="cbi-value-title">IP</label>
+		    <label class="cbi-value-title">Is exit node</label>
+		    <label class="cbi-value-title">Relay</label>
+		    
 		<div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
-			<div class="cbi-value-column" v-if="peer.Online === true">
+			<div v-if="peer.Online === true">
 
-                    			<label class="cbi-value-title">DNS Name</label>
                     			<div class="cbi-value-field">
 	                        		<a>{{ peer.DNSName.split('.')[0] }}</a>
                     			</div>
-
-				
-
-                    			<label class="cbi-value-title">IP</label>
+	
                     			<div class="cbi-value-field">
                         			<a>{{ peer.TailscaleIPs.join(', ') }}</a>
                     			</div>
-
-				
-
-                    			<label class="cbi-value-title">Is exit node</label>
+	
                     			<div class="cbi-value-field">
 	                        		<a>{{ peer.ExitNodeOption }}</a>
                     			</div>	
 
-				
-
-                    			<label class="cbi-value-title">Relay</label>
                     			<div class="cbi-value-field">
 	                        		<a>{{ peer.Relay }}</a>
                     			</div>

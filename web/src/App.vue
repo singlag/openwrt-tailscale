@@ -92,8 +92,6 @@
 		<!-- Ensure that peer is Active and process DNSName -->
 
 		<div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
-
-			<div class="cbi-value-row" v-if="peer.Online === true">
 				
 			<label v-if="peer.Online === true" class="cbi-value-title">DNS Name</label>
                     	<div class="cbi-value-field">
@@ -119,7 +117,37 @@
 
                 </div>
             </div>
-		
+
+
+
+
+	<div class="cbi-section">
+    		<a v-if="status?.BackendState"> <h3>Peers Status</h3> </a>
+    		<div class="cbi-section-node">
+        		<table class="cbi-table">
+            			<thead>
+                			<tr>
+                    				<th>DNS Name</th>
+                    				<th>IP</th>
+                    				<th>Is Exit Node</th>
+                    				<th>Relay</th>
+                			</tr>
+            			</thead>
+            			<tbody>
+                			<tr v-for="(peer, key) in status?.Peer" :key="key" v-if="peer.Online === true">
+                    				<td>{{ peer.DNSName.split('.')[0] }}</td>
+                    				<td>{{ peer.TailscaleIPs.join(', ') }}</td>
+                    				<td>{{ peer.ExitNodeOption }}</td>
+                    				<td>{{ peer.Relay }}</td>
+                			</tr>
+            			</tbody>
+        		</table>
+    		</div>
+	</div>
+
+
+
+	    
         </div>
 
 
@@ -402,7 +430,33 @@ const onLogout = async () => {
     }
 }
 </script>
-<style lang="scss" scoped></style>
+
+<style lang="scss" scoped>
+.cbi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.cbi-table th, .cbi-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.cbi-table th {
+    background-color: #f2f2f2;
+}
+
+.cbi-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.cbi-table tr:hover {
+    background-color: #ddd;
+}
+	
+</style>
 
 
 

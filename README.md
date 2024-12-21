@@ -6,5 +6,4 @@ https://openwrt.org/docs/guide-user/services/vpn/tailscale/start
 <img src="Screen-2.JPG" width="800"  alt="Profile Picture" style="border-radius: 10%;">
 <BR>
 
-    /etc/init.d/tailscaler start 
-    /etc/init.d/tailscaler stop
+    opkg install luci-app-tailscaler_0.0.5_all.ipk

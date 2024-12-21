@@ -112,24 +112,28 @@
 			<div class="cbi-value-row" style="display: flex; align-items: center;" v-if="peer.Online === true">
 				<div class="cbi-value-column" style="width: 200px; text-align: center;">
                     			<div class="cbi-value-field" style="width: 200px; text-align: center;">
+						<label class="cbi-value-title">DNS Name</label>
 	                        		<a v-if="peer.Online === true">{{ peer.DNSName.split('.')[0] }}</a>
                     			</div>
 				</div>
 
 				<div class="cbi-value-column" style="width: 150px; text-align: center;">
                     			<div class="cbi-value-field" style="width: 150px; text-align: center;">
+						<label class="cbi-value-title">IP</label>
                         			<a v-if="peer.Online === true">{{ peer.TailscaleIPs.join(', ') }}</a>
                     			</div>
 				</div>
 
 				<div class="cbi-value-column" style="width: 120px; text-align: center;">
                     			<div class="cbi-value-field" style="width: 120px; text-align: center;">
+						<label class="cbi-value-title">Is exit node</label>
 	                        		<a v-if="peer.Online === true">{{ peer.ExitNodeOption }}</a>
                     			</div>	
 				</div>
 
 				<div class="cbi-value-column" style="width: 100px; text-align: center;">
                     			<div class="cbi-value-field" style="width: 100px; text-align: center;">
+						<label class="cbi-value-title">Relay</label>
 	                        		<a v-if="peer.Online === true">{{ peer.Relay }}</a>
                     			</div>
 				</div>

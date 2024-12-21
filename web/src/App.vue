@@ -114,7 +114,6 @@
 	                        		<a v-if="peer.Online === true">{{ peer.Relay }}</a>
                     			</div>
 
-			</div>
                 </div>
             </div>
         </div>

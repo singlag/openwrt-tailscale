@@ -131,7 +131,7 @@
             </div>
 	</div>
 	
-
+	<!--
 	<div class="cbi-section">
 	    	<a v-if="status?.BackendState"> <h3>Peers Status</h3> </a>
     		<div class="cbi-section-node">
@@ -155,7 +155,7 @@
         		</table>
     		</div>
 	</div>
-
+	-->
 
 
         

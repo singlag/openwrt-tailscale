@@ -429,7 +429,8 @@ const onLogout = async () => {
 }
 </script>
 
-<style lang="scss" scoped>
+
+<style>
 .cbi-table {
     width: 100%;
     border-collapse: collapse;
@@ -453,8 +454,8 @@ const onLogout = async () => {
 .cbi-table tr:hover {
     background-color: #ddd;
 }
-	
 </style>
 
 
-
+<style lang="scss" scoped>
+</style>

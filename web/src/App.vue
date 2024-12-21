@@ -84,6 +84,8 @@
             </div>
         </div>
 
+
+        <!--  -->	
 .cbi-value-row {
     display: flex;
     justify-content: space-between;
@@ -102,33 +104,40 @@
     }
 }
 	
-        <!--  -->
         <div class="cbi-section">
             <a v-if="status?.BackendState"> <h3>Peers Status</h3> </a>
             <div class="cbi-section-node">
 		<!-- Ensure that peer is Active and process DNSName -->
 		<div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
-			
-                    <label v-if="peer.Online === true" class="cbi-value-title">DNS Name</label>
-                    <div class="cbi-value-field">
-                        <a v-if="peer.Online === true">{{ peer.DNSName.split('.')[0] }}</a>
-                    </div>
-			
-                    <label v-if="peer.Online === true" class="cbi-value-title">IP</label>
-                    <div class="cbi-value-field">
-                        <a v-if="peer.Online === true">{{ peer.TailscaleIPs.join(', ') }}</a>
-                    </div>
-					
-                    <label v-if="peer.Online === true" class="cbi-value-title">Is exit node</label>
-                    <div class="cbi-value-field">
-                        <a v-if="peer.Online === true">{{ peer.ExitNodeOption }}</a>
-                    </div>
-
-                    <label v-if="peer.Online === true" class="cbi-value-title">Relay</label>
-                    <div class="cbi-value-field">
-                        <a v-if="peer.Online === true">{{ peer.Relay }}</a>
-                    </div>
-			
+			<div class="cbi-value-row" v-if="peer.Online === true">
+				<div class="cbi-value-column">
+                    			<label class="cbi-value-title">DNS Name</label>
+                    			<div class="cbi-value-field">
+	                        		<a>{{ peer.DNSName.split('.')[0] }}</a>
+                    			</div>
+				</div>
+				
+				<div class="cbi-value-column">
+                    			<label class="cbi-value-title">IP</label>
+                    			<div class="cbi-value-field">
+                        			<a>{{ peer.TailscaleIPs.join(', ') }}</a>
+                    			</div>
+				</div>
+				
+				<div class="cbi-value-column">
+                    			<label class="cbi-value-title">Is exit node</label>
+                    			<div class="cbi-value-field">
+	                        		<a>{{ peer.ExitNodeOption }}</a>
+                    			</div>	
+				</div>
+				
+				<div class="cbi-value-column">
+                    			<label class="cbi-value-title">Relay</label>
+                    			<div class="cbi-value-field">
+	                        		<a>{{ peer.Relay }}</a>
+                    			</div>
+				</div>
+			</div>
                 </div>
             </div>
         </div>

@@ -134,11 +134,11 @@
                 			</tr>
             			</thead>
             			<tbody>
-                			<tr v-for="(peer, key) in status?.Peer" :key="key" v-if="peer.Online === true">
-                    				<td>{{ peer.DNSName.split('.')[0] }}</td>
-                    				<td>{{ peer.TailscaleIPs.join(', ') }}</td>
-                    				<td>{{ peer.ExitNodeOption }}</td>
-                    				<td>{{ peer.Relay }}</td>
+                			<tr v-for="(peer, key) in status?.Peer" :key="key">
+                    				<td v-if="peer.Online === true">{{ peer.DNSName.split('.')[0] }}</td>
+                    				<td v-if="peer.Online === true">{{ peer.TailscaleIPs.join(', ') }}</td>
+                    				<td v-if="peer.Online === true">{{ peer.ExitNodeOption }}</td>
+                    				<td v-if="peer.Online === true">{{ peer.Relay }}</td>
                 			</tr>
             			</tbody>
         		</table>

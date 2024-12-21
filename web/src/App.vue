@@ -85,58 +85,40 @@
         </div>
 
 
-        <!--  -->	
-.cbi-value-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px; /* Space between rows */
-}
-
-.cbi-value-column {
-    flex: 1; /* Each column takes equal space */
-    padding: 0 10px; /* Adjust padding for spacing */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .cbi-value-row {
-        flex-direction: column; /* Stack columns on smaller screens */
-    }
-}
-	
+        <!--  -->		
         <div class="cbi-section">
             <a v-if="status?.BackendState"> <h3>Peers Status</h3> </a>
             <div class="cbi-section-node">
 		<!-- Ensure that peer is Active and process DNSName -->
 		<div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
 			<div class="cbi-value-row" v-if="peer.Online === true">
-				<div class="cbi-value-column">
+
                     			<label class="cbi-value-title">DNS Name</label>
                     			<div class="cbi-value-field">
 	                        		<a>{{ peer.DNSName.split('.')[0] }}</a>
                     			</div>
-				</div>
+
 				
-				<div class="cbi-value-column">
+
                     			<label class="cbi-value-title">IP</label>
                     			<div class="cbi-value-field">
                         			<a>{{ peer.TailscaleIPs.join(', ') }}</a>
                     			</div>
-				</div>
+
 				
-				<div class="cbi-value-column">
+
                     			<label class="cbi-value-title">Is exit node</label>
                     			<div class="cbi-value-field">
 	                        		<a>{{ peer.ExitNodeOption }}</a>
                     			</div>	
-				</div>
+
 				
-				<div class="cbi-value-column">
+
                     			<label class="cbi-value-title">Relay</label>
                     			<div class="cbi-value-field">
 	                        		<a>{{ peer.Relay }}</a>
                     			</div>
-				</div>
+
 			</div>
                 </div>
             </div>

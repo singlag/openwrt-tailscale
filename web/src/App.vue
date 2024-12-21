@@ -93,25 +93,24 @@
 
 		<div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
 
-			<label class="cbi-value-title">DNS Name</label>
+			<label v-if="peer.Online === true" class="cbi-value-title">DNS Name</label>
                     	<div class="cbi-value-field">
-	                        <a>{{ peer.DNSName.split('.')[0] }}</a>
+	                        <a v-if="peer.Online === true">{{ peer.DNSName.split('.')[0] }}</a>
                     	</div>
 
-			<label class="cbi-value-title">IP</label>
+			<label v-if="peer.Online === true" class="cbi-value-title">IP</label>
                     	<div class="cbi-value-field">
-                        	<a>{{ peer.TailscaleIPs.join(', ') }}</a>
+                        	<a v-if="peer.Online === true">{{ peer.TailscaleIPs.join(', ') }}</a>
                     	</div>
 
-			<label class="cbi-value-title">Is exit node</label>
+			<label v-if="peer.Online === true" class="cbi-value-title">Is exit node</label>
                     	<div class="cbi-value-field">
-	                        <a>{{ peer.ExitNodeOption }}</a>
+	                        <a v-if="peer.Online === true">{{ peer.ExitNodeOption }}</a>
                     	</div>	
 
-
-		    	<label class="cbi-value-title">Relay</label>
+		    	<label v-if="peer.Online === true" class="cbi-value-title">Relay</label>
                     	<div class="cbi-value-field">
-	                        <a>{{ peer.Relay }}</a>
+	                        <a v-if="peer.Online === true">{{ peer.Relay }}</a>
                     	</div>
 
                 </div>

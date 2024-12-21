@@ -84,7 +84,24 @@
             </div>
         </div>
 
+.cbi-value-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Space between rows */
+}
 
+.cbi-value-column {
+    flex: 1; /* Each column takes equal space */
+    padding: 0 10px; /* Adjust padding for spacing */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cbi-value-row {
+        flex-direction: column; /* Stack columns on smaller screens */
+    }
+}
+	
         <!--  -->
         <div class="cbi-section">
             <a v-if="status?.BackendState"> <h3>Peers Status</h3> </a>
@@ -396,24 +413,7 @@ const onLogout = async () => {
     }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" scoped></style>
 
-.cbi-value-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px; /* Space between rows */
-}
 
-.cbi-value-column {
-    flex: 1; /* Each column takes equal space */
-    padding: 0 10px; /* Adjust padding for spacing */
-}
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .cbi-value-row {
-        flex-direction: column; /* Stack columns on smaller screens */
-    }
-}
-	
-</style>

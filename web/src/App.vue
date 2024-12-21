@@ -93,6 +93,8 @@
 
 		<div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
 
+			<div class="cbi-value-row" v-if="peer.Online === true">
+				
 			<label v-if="peer.Online === true" class="cbi-value-title">DNS Name</label>
                     	<div class="cbi-value-field">
 	                        <a v-if="peer.Online === true">{{ peer.DNSName.split('.')[0] }}</a>
@@ -112,6 +114,8 @@
                     	<div class="cbi-value-field">
 	                        <a v-if="peer.Online === true">{{ peer.Relay }}</a>
                     	</div>
+
+			</div>
 
                 </div>
             </div>

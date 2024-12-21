@@ -92,24 +92,24 @@
 		<!-- Ensure that peer is Active and process DNSName -->
 		<div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
 			
-                    <label v-if="peer.Active" class="cbi-value-title">DNS Name</label>
+                    <label v-if="peer.Active === true" class="cbi-value-title">DNS Name</label>
                     <div class="cbi-value-field">
-                        <a v-if="peer.Active">{{ peer.DNSName.split('.')[0] }}</a>
+                        <a v-if="peer.Active === true">{{ peer.DNSName.split('.')[0] }}</a>
                     </div>
 			
-                    <label v-if="peer.Active" class="cbi-value-title">IP</label>
+                    <label v-if="peer.Active === true" class="cbi-value-title">IP</label>
                     <div class="cbi-value-field">
-                        <a v-if="peer.Active">{{ peer.TailscaleIPs.join(', ') }}</a>
+                        <a v-if="peer.Active === true">{{ peer.TailscaleIPs.join(', ') }}</a>
                     </div>
 					
-                    <label v-if="peer.Active" class="cbi-value-title">Is exit node</label>
+                    <label v-if="peer.Active === true" class="cbi-value-title">Is exit node</label>
                     <div class="cbi-value-field">
-                        <a v-if="peer.Active">{{ peer.ExitNodeOption }}</a>
+                        <a v-if="peer.Active === true">{{ peer.ExitNodeOption }}</a>
                     </div>
 
-                    <label v-if="peer.Active" class="cbi-value-title">Relay</label>
+                    <label v-if="peer.Active === true" class="cbi-value-title">Relay</label>
                     <div class="cbi-value-field">
-                        <a v-if="peer.Active">{{ peer.Relay }}</a>
+                        <a v-if="peer.Active === true">{{ peer.Relay }}</a>
                     </div>
 			
                 </div>

@@ -92,16 +92,16 @@
 
 		<div class="cbi-value-row">
 			<div class="cbi-value-column">
-				<label class="cbi-value-title">DNS Name</label>
+				<label style="text-align:center;" class="cbi-value-title">DNS Name</label>
 			</div>
 			<div class="cbi-value-column">
-				<label class="cbi-value-title">IP</label>
+				<label style="text-align:center;" class="cbi-value-title">IP</label>
 			</div>
 			<div class="cbi-value-column">
-				<label class="cbi-value-title">Is exit node</label>
+				<label style="text-align:center;" class="cbi-value-title">Is exit node</label>
 			</div>
 			<div class="cbi-value-column">
-				<label class="cbi-value-title">Relay</label>
+				<label style="text-align:center;" class="cbi-value-title">Relay</label>
 			</div>
 		</div>
 		    

@@ -113,37 +113,35 @@
 	                        <a v-if="peer.Online === true">{{ peer.Relay }}</a>
                     	</div>
 
-			</div>
-
                 </div>
             </div>
 
 
 
 
-	<div class="cbi-section">
-    		<a v-if="status?.BackendState"> <h3>Peers Status</h3> </a>
-    		<div class="cbi-section-node">
-        		<table class="cbi-table">
-            			<thead>
-                			<tr>
-                    				<th>DNS Name</th>
-                    				<th>IP</th>
-                    				<th>Is Exit Node</th>
-                    				<th>Relay</th>
-                			</tr>
-            			</thead>
-            			<tbody>
-                			<tr v-for="(peer, key) in status?.Peer" :key="key">
-                    				<td v-if="peer.Online === true">{{ peer.DNSName.split('.')[0] }}</td>
-                    				<td v-if="peer.Online === true">{{ peer.TailscaleIPs.join(', ') }}</td>
-                    				<td v-if="peer.Online === true">{{ peer.ExitNodeOption }}</td>
-                    				<td v-if="peer.Online === true">{{ peer.Relay }}</td>
-                			</tr>
-            			</tbody>
-        		</table>
-    		</div>
-	</div>
+		<div class="cbi-section">
+	    		<a v-if="status?.BackendState"> <h3>Peers Status</h3> </a>
+    			<div class="cbi-section-node">
+	        		<table class="cbi-table">
+            				<thead>
+	                			<tr>
+                    					<th>DNS Name</th>
+                    					<th>IP</th>
+                    					<th>Is Exit Node</th>
+                    					<th>Relay</th>
+                				</tr>
+            				</thead>
+            				<tbody>
+	                			<tr v-for="(peer, key) in status?.Peer" :key="key">
+                    					<td v-if="peer.Online === true">{{ peer.DNSName.split('.')[0] }}</td>
+                    					<td v-if="peer.Online === true">{{ peer.TailscaleIPs.join(', ') }}</td>
+                    					<td v-if="peer.Online === true">{{ peer.ExitNodeOption }}</td>
+                    					<td v-if="peer.Online === true">{{ peer.Relay }}</td>
+                				</tr>
+            				</tbody>
+        			</table>
+    			</div>
+		</div>
 
 
 

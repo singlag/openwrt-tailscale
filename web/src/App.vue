@@ -92,44 +92,43 @@
 
 		<p align="center">
 			
-		<div class="cbi-value-row">
-			<div class="cbi-value-column">
+		<div class="cbi-value-row" style="display: flex; justify-content: space-between; font-weight: bold;">
+			<div class="cbi-value-column" style="flex: 1; text-align: center;">
 				<label class="cbi-value-title">DNS Name</label>
 			</div>
-			<div class="cbi-value-column">
+			<div class="cbi-value-column" style="flex: 1; text-align: center;">
 				<label class="cbi-value-title">IP</label>
 			</div>
-			<div class="cbi-value-column">
+			<div class="cbi-value-column" style="flex: 1; text-align: center;">
 				<label class="cbi-value-title">Is exit node</label>
 			</div>
-			<div class="cbi-value-column">
+			<div class="cbi-value-column" style="flex: 1; text-align: center;">
 				<label class="cbi-value-title">Relay</label>
 			</div>
 		</div>
 		    
 		<div v-for="(peer, key) in status?.Peer" :key="key" class="cbi-value cbi-value-last">
 			
-			<div class="cbi-value-row" v-if="peer.Online === true">
-				
-				<div class="cbi-value-column">
+			<div class="cbi-value-row" style="display: flex; justify-content: space-between; align-items: center;" v-if="peer.Online === true">
+				<div class="cbi-value-column" style="flex: 1; text-align: center;">
                     			<div class="cbi-value-field">
 	                        		<a v-if="peer.Online === true">{{ peer.DNSName.split('.')[0] }}</a>
                     			</div>
 				</div>
 
-				<div class="cbi-value-column">
+				<div class="cbi-value-column" style="flex: 1; text-align: center;">
                     			<div class="cbi-value-field">
                         			<a v-if="peer.Online === true">{{ peer.TailscaleIPs.join(', ') }}</a>
                     			</div>
 				</div>
 
-				<div class="cbi-value-column">
+				<div class="cbi-value-column" style="flex: 1; text-align: center;">
                     			<div class="cbi-value-field">
 	                        		<a v-if="peer.Online === true">{{ peer.ExitNodeOption }}</a>
                     			</div>	
 				</div>
 
-				<div class="cbi-value-column">
+				<div class="cbi-value-column" style="flex: 1; text-align: center;">
                     			<div class="cbi-value-field">
 	                        		<a v-if="peer.Online === true">{{ peer.Relay }}</a>
                     			</div>
@@ -479,19 +478,19 @@ const onLogout = async () => {
 .cbi-value-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px; /* Space between rows */
 }
 
 .cbi-value-column {
-    flex: 1; /* Each column takes equal space */
-    padding: 0 10px; /* Adjust padding for spacing */
+    flex: 1;
+    text-align: center;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .cbi-value-row {
-        flex-direction: column; /* Stack columns on smaller screens */
-    }
+.cbi-value-title {
+    font-weight: bold;
+}
+
+.cbi-value-field {
+    overflow: hidden; /* Prevents overflow issues */
 }
 	
 </style>

@@ -89,6 +89,7 @@ start_service() {
     	#procd_append_param command $currentflags
 
 	## Update /etc/config/tailscaler with the currentflags
+	echo "Current flags : " $currentflags
     	uci set tailscaler.@settings[0].currentflags="$currentflags"
     	uci commit tailscaler
 

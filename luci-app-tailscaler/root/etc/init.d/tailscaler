@@ -94,7 +94,7 @@ start_service() {
 	logger -t tailscaler 'end tailscaler'
 
 	# Update /etc/config/tailscaler with the currentflags
-    	uci set tailscaler.settings.currentflags="$currentflags"
+    	uci set tailscaler.@settings[0].currentflags="$currentflags"
     	uci commit tailscaler
 
 }

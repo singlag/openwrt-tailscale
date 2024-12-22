@@ -31,6 +31,7 @@ function getTailscaleConfig()
     local exitNodeAllowLan   	= 	uci:get_first("tailscaler", "settings", "exitNodeAllowLan")
     local loginServer  		= 	uci:get_first("tailscaler", "settings", "loginServer")
     local authkey   		= 	uci:get_first("tailscaler", "settings", "authkey")
+    local currentflags   	= 	uci:get_first("tailscaler", "settings", "currentflags")
     local result 			= 	{
         enabled    			= 	(enabled == "1"),
 		acceptRoutes 		= 	(acceptRoutes == "1"),
@@ -45,6 +46,7 @@ function getTailscaleConfig()
 		customFlags			=	customFlags,
 		loginServer			=	loginServer,
 		authkey				=	authkey,
+		currentflags			=	currentflags,
     }
     return result
 end
@@ -100,8 +102,12 @@ function submitTailscaleConfig(req)
 		uci:set("tailscaler","@settings[0]","advertiseRoutes",req.advertiseRoutes)
 	end
 	-- exitNodeConnect
-	if req.acceptRoutes ~= nil then
+	if req.exitNodeConnect ~= nil then
 		uci:set("tailscaler","@settings[0]","exitNodeConnect",req.exitNodeConnect)
+	end
+	-- currentflags
+	if req.currentflags ~= nil then
+		uci:set("tailscaler","@settings[0]","currentflags",req.currentflags)
 	end
 	uci:commit("tailscaler")  
 end

@@ -11,11 +11,13 @@ get_config() {
 	config_get_bool notAcceptDns $1 notAcceptDns 0
 	config_get_bool shieldsUp $1 shieldsUp 0
 	config_get_bool statefulFiltering $1 statefulFiltering 0
+	config_get_bool exitNodeAllowLan $1 exitNodeAllowLan 0
 	config_get loginServer $1 loginServer ""
 	config_get authkey $1 authkey ""
 	config_get hostname $1 hostname ""
 	config_get customFlags $1 customFlags ""
 	config_get advertiseRoutes $1 advertiseRoutes ""
+	config_get exitNodeConnect $1 exitNodeConnect ""
 }
 start_service() {
 	logger -t tailscaler 'start_service'
@@ -62,6 +64,13 @@ start_service() {
 	if [ -n "$advertiseRoutes" ];then
 		procd_append_param command --advertise-routes "$advertiseRoutes"
 	fi
+	if [ "$exitNodeAllowLan" = 1 ]; then
+		procd_append_param command --exit-node-allow-lan-access=true
+	fi
+	if [ -n "$exitNodeConnect" ];then
+		procd_append_param command --exit-node "$exitNodeConnect"
+	fi
+
 	procd_set_param stdout 1
 	procd_set_param stderr 1
 	procd_close_instance

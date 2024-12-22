@@ -106,9 +106,9 @@ function submitTailscaleConfig(req)
 		uci:set("tailscaler","@settings[0]","exitNodeConnect",req.exitNodeConnect)
 	end
 	-- currentflags
-	if req.currentflags ~= nil then
-		uci:set("tailscaler","@settings[0]","currentflags",req.currentflags)
-	end
+	-- if req.currentflags ~= nil then
+		-- uci:set("tailscaler","@settings[0]","currentflags",req.currentflags)
+	-- end
 	uci:commit("tailscaler")  
 end
 

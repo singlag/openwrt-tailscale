@@ -18,7 +18,7 @@ get_config() {
 	config_get customFlags $1 customFlags ""
 	config_get advertiseRoutes $1 advertiseRoutes ""
 	config_get exitNodeConnect $1 exitNodeConnect ""
-	config_get currentflags $1 currentflags ""
+	#config_get currentflags $1 currentflags ""
 }
 start_service() {
 	logger -t tailscaler 'start_service'

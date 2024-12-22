@@ -5,6 +5,8 @@ config settings
 	option notAcceptDns '0'
 	option shieldsUp '0'
 	option statefulFiltering '0'
+	option exitNodeAllowLan '0'
+	option exitNodeConnect ''
 	option advertiseRoutes ''
 	option hostname ''
 	option customFlags ''

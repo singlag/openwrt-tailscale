@@ -5,7 +5,7 @@ function index()
 	if not nixio.fs.access("/etc/config/tailscaler") then
         return
     end
-	entry({"admin", "services", "tailscaler"},				call("tailscale_template"), _("Tailscale"), 21).dependent = true
+	entry({"admin", "services", "tailscaler"},		call("tailscale_template"), _("Tailscale"), 21).dependent = true
 	entry({"admin", "services", "tailscaler", "config"}, 	call("tailscale_config"))
 	entry({"admin", "services", "tailscaler", "status"}, 	call("tailscale_status"))
 	entry({"admin", "services", "tailscaler", "logout"}, 	call("tailscale_logout"))
@@ -24,9 +24,11 @@ function getTailscaleConfig()
     local notAcceptDns  	= 	uci:get_first("tailscaler", "settings", "notAcceptDns")
     local shieldsUp  		= 	uci:get_first("tailscaler", "settings", "shieldsUp")
     local statefulFiltering  	= 	uci:get_first("tailscaler", "settings", "statefulFiltering")
+    local exitNodeConnect  	= 	uci:get_first("tailscaler", "settings", "exitNodeConnect")
     local hostname   		= 	uci:get_first("tailscaler", "settings", "hostname")
     local customFlags   	= 	uci:get_first("tailscaler", "settings", "customFlags")
     local advertiseRoutes   	= 	uci:get_first("tailscaler", "settings", "advertiseRoutes")
+    local exitNodeAllowLan   	= 	uci:get_first("tailscaler", "settings", "exitNodeAllowLan")
     local loginServer  		= 	uci:get_first("tailscaler", "settings", "loginServer")
     local authkey   		= 	uci:get_first("tailscaler", "settings", "authkey")
     local result 			= 	{
@@ -36,8 +38,10 @@ function getTailscaleConfig()
 		notAcceptDns 		= 	(notAcceptDns == "1"),
 		shieldsUp 		= 	(shieldsUp == "1"),
 		statefulFiltering 	= 	(statefulFiltering == "1"),
+		exitNodeAllowLan 	= 	(exitNodeAllowLan == "1"),
 		advertiseRoutes			=	advertiseRoutes,
 		hostname			=	hostname,
+		exitNodeConnect			=	exitNodeConnect,
 		customFlags			=	customFlags,
 		loginServer			=	loginServer,
 		authkey				=	authkey,
@@ -82,6 +86,10 @@ function submitTailscaleConfig(req)
 	-- shieldsUp
 	if req.shieldsUp ~= nil then
 		uci:set("tailscaler","@settings[0]","shieldsUp",req.shieldsUp)
+	end
+	-- statefulFiltering
+	if req.statefulFiltering ~= nil then
+		uci:set("tailscaler","@settings[0]","statefulFiltering",req.statefulFiltering)
 	end
 	-- statefulFiltering
 	if req.statefulFiltering ~= nil then

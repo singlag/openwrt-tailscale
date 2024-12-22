@@ -282,7 +282,7 @@
                 </div>
                 <!--  -->
                 <div class="cbi-value">
-                    <label class="cbi-value-title">Allow connect current Lan after connect to Exit Node</label>
+                    <label class="cbi-value-title">Allow access current Lan after connect to Exit Node</label>
                     <div class="cbi-value-field">
                         <div class="cbi-checkbox">
                             <input name="exitNodeAllowLan" type="checkbox" :value="false" v-model="config.exitNodeAllowLan">

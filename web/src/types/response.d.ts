@@ -15,6 +15,7 @@ declare interface ResponseConfig {
     exitNodeConnect?: string
     loginServer?: string
     authkey?: string
+    currentflags?: string
 }
 
 // 

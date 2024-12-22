@@ -38,51 +38,51 @@ start_service() {
 	procd_set_param command /usr/sbin/tailscale up --reset
 	if [ -n "$loginServer" ]; then
 		procd_append_param command --login-server "$loginServer"
-		currentflags+=" --login-server \"$loginServer\""
+		currentflags="${currentflags} --login-server \"$loginServer\""
 	fi
 	if [ -n "$authkey" ]; then
 		procd_append_param command --authkey "$authkey"
-		currentflags+=" --authkey \"$authkey\""
+		currentflags="${currentflags} --authkey \"$authkey\""
 	fi
 	if [ -n "$hostname" ]; then
 		procd_append_param command --hostname "$hostname"
-		currentflags+=" --hostname \"$hostname\""
+		currentflags="${currentflags} --hostname \"$hostname\""
 	fi
 	if [ -n "$customFlags" ]; then
 		procd_append_param command "$customFlags"
-		currentflags+=" $customFlags"
+		currentflags="${currentflags} $customFlags"
 	fi
 	if [ "$acceptRoutes" = 1 ]; then
 		procd_append_param command --accept-routes
-		currentflags+=" --accept-routes"
+		currentflags="${currentflags} --accept-routes"
 	fi
 	if [ "$advertiseExitNode" = 1 ]; then
 		procd_append_param command --advertise-exit-node
-		currentflags+=" --advertise-exit-node"
+		currentflags="${currentflags} --advertise-exit-node"
 	fi
 	if [ "$notAcceptDns" = 1 ]; then
 		procd_append_param command --accept-dns=false
-		currentflags+=" --accept-dns=false"
+		currentflags="${currentflags} --accept-dns=false"
 	fi
 	if [ "$shieldsUp" = 1 ]; then
 		procd_append_param command --shields-up
-		currentflags+=" --shields-up"
+		currentflags="${currentflags} --shields-up"
 	fi
 	if [ "$statefulFiltering" = 1 ]; then
 		procd_append_param command --stateful-filtering
-		currentflags+=" --stateful-filtering"
+		currentflags="${currentflags} --stateful-filtering"
 	fi
 	if [ -n "$advertiseRoutes" ];then
 		procd_append_param command --advertise-routes "$advertiseRoutes"
-		currentflags+=" --advertise-routes \"$advertiseRoutes\""
+		currentflags="${currentflags} --advertise-routes \"$advertiseRoutes\""
 	fi
 	if [ "$exitNodeAllowLan" = 1 ]; then
 		procd_append_param command --exit-node-allow-lan-access=true
-		currentflags+=" --exit-node-allow-lan-access=true"
+		currentflags="${currentflags} --exit-node-allow-lan-access=true"
 	fi
 	if [ -n "$exitNodeConnect" ];then
 		procd_append_param command --exit-node "$exitNodeConnect"
-		currentflags+=" --exit-node \"$exitNodeConnect\""
+		currentflags="${currentflags} --exit-node \"$exitNodeConnect\""
 	fi
 
     	## Pass the accumulated flags to procd

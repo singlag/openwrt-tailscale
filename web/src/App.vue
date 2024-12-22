@@ -85,7 +85,7 @@
                     <label class="cbi-value-title">Current Flags : </label>
                     <div class="cbi-value-field">
                         <div class="cbi-value-field">
-                            <a>{{ v-model.trim="config.currentflags" }}</a>
+                            <a v-model.trim="config.currentflags"></a>
                         </div>
                         <div class="cbi-value-description">
                             Current tailscale up flags

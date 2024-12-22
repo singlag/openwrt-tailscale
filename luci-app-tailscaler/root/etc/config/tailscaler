@@ -12,3 +12,4 @@ config settings
 	option customFlags ''
 	option loginServer ''
 	option authKey ''
+	option currentflags ''

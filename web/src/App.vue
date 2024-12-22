@@ -256,6 +256,32 @@
                 </div>
                 <!--  -->
                 <div class="cbi-value">
+                    <label class="cbi-value-title">Connect to Exit Node</label>
+                    <div class="cbi-value-field">
+                        <div>
+                            <input type="text" class="cbi-input-text" name="exitNodeConnect" placeholder="IP Address or machine name"
+                                v-model.trim="config.exitNodeConnect">
+                        </div>
+                        <div class="cbi-value-description">
+                            Provide a Tailscale IP or machine name to use as an exit node.
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="cbi-value">
+                    <label class="cbi-value-title">Allow connect current Lan after connect to Exit Node</label>
+                    <div class="cbi-value-field">
+                        <div class="cbi-checkbox">
+                            <input name="exitNodeAllowLan" type="checkbox" :value="false" v-model="config.exitNodeAllowLan">
+                            <label></label>
+                        </div>
+                        <div class="cbi-value-description">
+                            Allow access to its own LAN while connected to an exit node. Defaults to not allowing access while connected to an exit node.
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="cbi-value">
                     <label class="cbi-value-title">Custom Flags for running tailscale up</label>
                     <div class="cbi-value-field">
                         <div>

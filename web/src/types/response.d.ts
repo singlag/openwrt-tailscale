@@ -8,9 +8,11 @@ declare interface ResponseConfig {
     notAcceptDns?: boolean
     shieldsUp?: boolean
     statefulFiltering?: boolean
+    exitNodeAllowLan?: boolean
     hostname?: string
     customFlags?: string
     advertiseRoutes?: string
+    exitNodeConnect?: string
     loginServer?: string
     authkey?: string
 }

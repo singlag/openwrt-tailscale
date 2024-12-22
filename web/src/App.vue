@@ -84,8 +84,8 @@
                 <div class="cbi-value" v-if="status?.BackendState">
                     <label class="cbi-value-title">Current Flags : </label>
                     <div class="cbi-value-field">
-                        <div class="cbi-value-field">
-                            <a v-model.trim="config.currentflags"></a>
+                        <div>
+                            <span class="cbi-input-text">{{ config.currentflags }}</span>
                         </div>
                         <div class="cbi-value-description">
                             Current tailscale up flags

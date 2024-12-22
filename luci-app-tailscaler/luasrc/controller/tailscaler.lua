@@ -91,13 +91,17 @@ function submitTailscaleConfig(req)
 	if req.statefulFiltering ~= nil then
 		uci:set("tailscaler","@settings[0]","statefulFiltering",req.statefulFiltering)
 	end
-	-- statefulFiltering
-	if req.statefulFiltering ~= nil then
-		uci:set("tailscaler","@settings[0]","statefulFiltering",req.statefulFiltering)
+	-- exitNodeAllowLan
+	if req.exitNodeAllowLan ~= nil then
+		uci:set("tailscaler","@settings[0]","exitNodeAllowLan",req.exitNodeAllowLan)
 	end
 	-- advertiseRoutes
 	if req.acceptRoutes ~= nil then
 		uci:set("tailscaler","@settings[0]","advertiseRoutes",req.advertiseRoutes)
+	end
+	-- exitNodeConnect
+	if req.acceptRoutes ~= nil then
+		uci:set("tailscaler","@settings[0]","exitNodeConnect",req.exitNodeConnect)
 	end
 	uci:commit("tailscaler")  
 end

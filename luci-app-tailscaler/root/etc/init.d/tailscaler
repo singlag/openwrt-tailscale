@@ -87,11 +87,16 @@ start_service() {
 
     	## Pass the accumulated flags to procd
     	#procd_append_param command $currentflags
-
+    	
 	procd_set_param stdout 1
 	procd_set_param stderr 1
 	procd_close_instance
 	logger -t tailscaler 'end tailscaler'
+
+	# Update /etc/config/tailscaler with the currentflags
+    	uci set tailscaler.settings.currentflags="$currentflags"
+    	uci commit tailscaler
+
 }
 stop_service() {
 	/etc/init.d/tailscale stop

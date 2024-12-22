@@ -79,8 +79,21 @@
             		<div class="cbi-value-field">
                 		<a>{{ status?.Self?.Relay ?? 'N/A' }}</a>
             		</div>
-        	</div>		    
-		
+        	</div>
+
+                <div class="cbi-value" v-if="status?.BackendState">
+                    <label class="cbi-value-title">Current Flags : </label>
+                    <div class="cbi-value-field">
+                        <div>
+                            <input type="text" class="cbi-input-text" name="currentflags" placeholder=""
+                                v-model.trim="config.currentflags">
+                        </div>
+                        <div class="cbi-value-description">
+                            Current running tailscale up flags
+                        </div>
+                    </div>
+                </div>
+		    
             </div>
         </div>
 

@@ -93,7 +93,7 @@ start_service() {
 	procd_close_instance
 	logger -t tailscaler 'end tailscaler'
 
-	# Update /etc/config/tailscaler with the currentflags
+	## Update /etc/config/tailscaler with the currentflags
     	uci set tailscaler.@settings[0].currentflags="$currentflags"
     	uci commit tailscaler
 
